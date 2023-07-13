@@ -2,9 +2,9 @@ const express = require("express");
 const accountRoutes = express.Router();
 const fs = require("fs");
 
-const dataPath = "./Details/account.json"; // path to our JSON file
+const dataPath = "./Details/account.json"; // path a nuestro JSON 
 
-// util functions
+// declaracion de funciones
 const saveAccountData = (data) => {
     const stringifyData = JSON.stringify(data);
     fs.writeFileSync(dataPath, stringifyData);
@@ -14,26 +14,30 @@ const getAccountData = () => {
     return JSON.parse(jsonData);
 };
 
+
+//*---------------------------------------------------------POST
+//post:recibe los datos de un usuario en un json  y le de una id 
 accountRoutes.post("/account/addaccount", (req, res) => {
     var existAccounts = getAccountData();
     const newAccountId = Math.floor(100000 + Math.random() * 900000);
 
     existAccounts[newAccountId] = req.body;
 
-    console.log(existAccounts);
+  //  console.log(existAccounts);
     saveAccountData(existAccounts);
-    res.send({ success: true, msg: "account added successfully" });
+    res.send(existAccounts);
 });
 
-// Read - get all accounts from the json file
+//*---------------------------------------------------------GET
+// get: obtiene todos los usuarios
 accountRoutes.get("/account/list", (req, res) => {
     const accounts = getAccountData();
     res.send(accounts);
 });
 
 
-//-----------------------------------------------------delete
-// delete - using delete method
+//*-----------------------------------------------------delete
+// delete - segun el id actualmente
 accountRoutes.delete("/account/delete/:id", (req, res) => {
     fs.readFile(
         dataPath,
