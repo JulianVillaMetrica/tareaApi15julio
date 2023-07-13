@@ -31,22 +31,7 @@ accountRoutes.get("/account/list", (req, res) => {
     res.send(accounts);
 });
 
-//-----------------------------------------------------UPDATE
-// Update - using Put method
-accountRoutes.put("/account/:id", (req, res) => {
-    var existAccounts = getAccountData();
-    fs.readFile(
-        dataPath,
-        "utf8",
-        (err, data) => {
-            const accountId = req.params["id"];
-            existAccounts[accountId] = req.body;
-            saveAccountData(existAccounts);
-            res.send(`accounts with id ${accountId} has been updated`);
-        },
-        true
-    );
-});
+
 //-----------------------------------------------------delete
 // delete - using delete method
 accountRoutes.delete("/account/delete/:id", (req, res) => {
@@ -58,7 +43,10 @@ accountRoutes.delete("/account/delete/:id", (req, res) => {
             const userId = req.params["id"];
             delete existAccounts[userId];
             saveAccountData(existAccounts);
-            res.send(`accounts with id ${userId} has been deleted`);
+            res.send(`La cuenta con el ID: ${userId} se ha borrado`);
+            //mostrar las cuentas despues de que borren una en especifico 
+            const accounts = getAccountData();
+             res.send(accounts);
         },
         true
     );
