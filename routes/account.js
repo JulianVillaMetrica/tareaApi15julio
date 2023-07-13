@@ -44,7 +44,7 @@ accountRoutes.delete("/account/delete/:id", (req, res) => {
             delete existAccounts[userId];
             saveAccountData(existAccounts);
             res.send(existAccounts)
-            res.send(`La cuenta con el ID: ${userId} se ha borrado`);
+       //     res.send(`La cuenta : ${userId} se ha borrado`);
             
         },
         true
