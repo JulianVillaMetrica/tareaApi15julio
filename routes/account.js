@@ -48,7 +48,7 @@ accountRoutes.delete("/api/devTeam/delete/:email", (req, res) => {
         var existAccounts = getAccountData();
         const userCorreo = req.params["email"];
 
-        console.log("Requested email:", userCorreo);
+        console.log("email a borrar:", userCorreo);
 
         let matchingId = null;
         for (const [userId, userData] of Object.entries(existAccounts)) {
