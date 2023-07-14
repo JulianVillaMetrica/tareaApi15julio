@@ -17,7 +17,7 @@ const getAccountData = () => {
 
 //*---------------------------------------------------------POST
 //post:recibe los datos de un usuario en un json  y le de una id 
-accountRoutes.post("/account/addaccount", (req, res) => {
+accountRoutes.post("/api/devTeam/add", (req, res) => {
     var existAccounts = getAccountData();
     const newAccountId = Math.floor(100000 + Math.random() * 900000);
 
@@ -30,35 +30,21 @@ accountRoutes.post("/account/addaccount", (req, res) => {
 
 //*---------------------------------------------------------GET
 // get: obtiene todos los usuarios
-accountRoutes.get("/account/list", (req, res) => {
+accountRoutes.get("/api/devTeam", (req, res) => {
     const accounts = getAccountData();
     res.send(accounts);
 });
 
-/*
-//*-----------------------------------------------------delete viejo
-// delete - segun el id actualmente
-accountRoutes.delete("/account/delete/:id", (req, res) => {
-    fs.readFile(dataPath, "utf8", (err, data) => {
-            var existAccounts = getAccountData();
-            const userId = req.params["id"];
-            delete existAccounts[userId];
-            saveAccountData(existAccounts);
-            res.send(existAccounts)
-       //     res.send(`La cuenta : ${userId} se ha borrado`);
-            
-        }, true);
-});*/
+
 //*-----------------------------------------------------delete
-// delete - segun el id actualmente
-accountRoutes.delete("/account/delete/:email", (req, res) => {
+// delete - segun el correo
+accountRoutes.delete("/api/devTeam/delete/:email", (req, res) => {
     fs.readFile(dataPath, "utf8", (err, data) => {
         if (err) {
             console.error("Error reading file:", err);
             res.status(500).send("Internal server error");
             return;
         }
-
         var existAccounts = getAccountData();
         const userCorreo = req.params["email"];
 
@@ -75,33 +61,16 @@ accountRoutes.delete("/account/delete/:email", (req, res) => {
 
         console.log("Matching ID:", matchingId);
 
-        // Delete the user's data
+        //Si hay una ID que hizo match entra al condicional
         if (matchingId) {
             delete existAccounts[matchingId];
             saveAccountData(existAccounts);
-            console.log("User data deleted successfully.");
+            console.log("Usuario borrado exitosamente.");
             res.send(existAccounts);
         } else {
-            console.log("User not found.");
-            res.status(404).send("User not found");
+            console.log("Usuario no encontrado.");
+            res.status(404).send("Usuario no encontrado");
         }
-//-------------------------------------------
-
-
-
-            /*
-            var count = Object.keys(existAccounts).length;
-            for (let i = 0; i < count; i++){
-                const element = array[i];
-                if(userCorreo==existAccounts.email)   
-                    delete existAccounts[userId];
-            }
-            //const userId = req.params["id"];
-            delete existAccounts[userId];
-            saveAccountData(existAccounts);
-            res.send(existAccounts)
-       //     res.send(`La cuenta : ${userId} se ha borrado`);
-            */
         }, true);
 });
 module.exports = accountRoutes;
