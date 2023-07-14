@@ -35,14 +35,11 @@ accountRoutes.get("/account/list", (req, res) => {
     res.send(accounts);
 });
 
-
-//*-----------------------------------------------------delete
+/*
+//*-----------------------------------------------------delete viejo
 // delete - segun el id actualmente
 accountRoutes.delete("/account/delete/:id", (req, res) => {
-    fs.readFile(
-        dataPath,
-        "utf8",
-        (err, data) => {
+    fs.readFile(dataPath, "utf8", (err, data) => {
             var existAccounts = getAccountData();
             const userId = req.params["id"];
             delete existAccounts[userId];
@@ -50,9 +47,61 @@ accountRoutes.delete("/account/delete/:id", (req, res) => {
             res.send(existAccounts)
        //     res.send(`La cuenta : ${userId} se ha borrado`);
             
-        },
-        true
-    );
-});
+        }, true);
+});*/
+//*-----------------------------------------------------delete
+// delete - segun el id actualmente
+accountRoutes.delete("/account/delete/:email", (req, res) => {
+    fs.readFile(dataPath, "utf8", (err, data) => {
+        if (err) {
+            console.error("Error reading file:", err);
+            res.status(500).send("Internal server error");
+            return;
+        }
 
+        var existAccounts = getAccountData();
+        const userCorreo = req.params["email"];
+
+        console.log("Requested email:", userCorreo);
+
+        let matchingId = null;
+        for (const [userId, userData] of Object.entries(existAccounts)) {
+            console.log("Checking user:", userId, userData);
+            if (userData.email === userCorreo) {
+                matchingId = userId;
+                break;
+            }
+        }
+
+        console.log("Matching ID:", matchingId);
+
+        // Delete the user's data
+        if (matchingId) {
+            delete existAccounts[matchingId];
+            saveAccountData(existAccounts);
+            console.log("User data deleted successfully.");
+            res.send(existAccounts);
+        } else {
+            console.log("User not found.");
+            res.status(404).send("User not found");
+        }
+//-------------------------------------------
+
+
+
+            /*
+            var count = Object.keys(existAccounts).length;
+            for (let i = 0; i < count; i++){
+                const element = array[i];
+                if(userCorreo==existAccounts.email)   
+                    delete existAccounts[userId];
+            }
+            //const userId = req.params["id"];
+            delete existAccounts[userId];
+            saveAccountData(existAccounts);
+            res.send(existAccounts)
+       //     res.send(`La cuenta : ${userId} se ha borrado`);
+            */
+        }, true);
+});
 module.exports = accountRoutes;
