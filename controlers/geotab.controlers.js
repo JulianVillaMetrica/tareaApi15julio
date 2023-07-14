@@ -1,9 +1,16 @@
 const geoTabService = require('../servers/geotab.servers')
 
 
-function print(){
-    geoTabService.print();
+function users(){
+    geoTabService.users();
+}
+function devices(){
+    geoTabService.devices();
+}
+function deviceStatusInfo(){
+    geoTabService.deviceStatusInfo();
 }
 module.exports ={
-    geoTabService
+    geoTabService,
+    print
 }
