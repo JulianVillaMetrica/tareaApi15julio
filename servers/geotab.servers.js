@@ -33,10 +33,10 @@ async function users(){
         path: serverMetrica
         }
    // const api = new GeotabApi(authentication);
-    print();
+    //print();
     const api = new GeotabApi(authentication);
 
-    await api.authenticate().then( response => console.log('I have authenticated',response),);
+    await api.authenticate().then( response => console.log('I have authenticated',response));
 }
 
 

@@ -29,6 +29,6 @@ app.use("/", geoRoutes);
 
 
 //start server
-app.listen(3000, () => {
+app.listen(3006, () => {
     console.log("listeniing at port:3000");
 });
