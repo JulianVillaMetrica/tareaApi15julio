@@ -20,15 +20,10 @@ const db = process.env.DATABASE;
 const userName = process.env.USERNAME;
 const sessionId = process.env.SESSIONID;
 
-
-
 app.use("/", routes);
 app.use("/", geoRoutes);
 
-
-
-
 //start server
-app.listen(3006, () => {
+app.listen(3000, () => {
     console.log("listeniing at port:3000");
 });
