@@ -36,15 +36,33 @@ router.get("/api/user", async (req, res) => {
     }
 });
 
-router.get("/api/devices", (req, res) => {
+router.get("/api/devices", async (req, res) => {
+    /*
     geoTabServers.devices();
     res.json();
+    */
+    //se uso el await para que primero se ejecutara la funcion de users y despues de eso ahora si mandara el la respuesta al body
+    try {
+    let geoDevices = await geoTabServers.devices();
+    res.send({ "Dispositivo:    ": geoDevices });
+    } catch (error) {
+    console.error('Error:', error);
+    res.status(500).send('Internal Server Error');
+    }
 
 });
-router.get("/api/deviceStatusInfo", (req, res) => {
+router.get("/api/deviceStatusInfo", async (req, res) => {
+    /* 
     geoTabServers.deviceStatusInfo();
     res.json();
-
+    */
+    try {
+    let deviceStatusInfoData = await geoTabServers.deviceStatusInfo();
+    res.send({ "Informacion del estado del dispositivo:    ": deviceStatusInfoData });
+    } catch (error) {
+    console.error('Error:', error);
+    res.status(500).send('Internal Server Error');
+    }
 });
 
 module.exports = router;

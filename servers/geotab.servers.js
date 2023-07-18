@@ -96,11 +96,18 @@ async function devices(){
     const api = new GeotabApi(authentication);
     let myCall = api.call('Get', {
     typeName: 'Device',
-    resultsLimit: 1
-});
-
+    resultsLimit: 5
+    });
+/*
     myCall.then( data => console.log(`Server response data: ${data}`,data)).
     catch( error => console.log(error));
+*/
+    await myCall.then( data => { 
+    console.log(`Server response data: ${data}`,data)
+    deviceData = data;
+    }).
+    catch( error => console.log(error));
+    return deviceData;
 }
 async function deviceStatusInfo(){
     const authentication = {
@@ -117,12 +124,18 @@ async function deviceStatusInfo(){
     const api = new GeotabApi(authentication);
     let myCall = api.call('Get', {
     typeName: 'DeviceStatusInfo',
-    resultsLimit: 100
+    resultsLimit: 5
     });
-
+    /*
     myCall.then( data => console.log(`Server response data: ${data}`,data)).
     catch( error => console.log(error));
-    //res.send(data);
+    */
+    await myCall.then( data => { 
+    console.log(`Server response data: ${data}`,data)
+    deviceStatusInfoData = data;
+    }).
+    catch( error => console.log(error));
+    return deviceStatusInfoData;
     
 }
 
