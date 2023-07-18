@@ -117,7 +117,7 @@ async function deviceStatusInfo(){
     const api = new GeotabApi(authentication);
     let myCall = api.call('Get', {
     typeName: 'DeviceStatusInfo',
-    resultsLimit: 1
+    resultsLimit: 100
     });
 
     myCall.then( data => console.log(`Server response data: ${data}`,data)).
