@@ -1,0 +1,232 @@
+[
+    {
+        "bearing": -1,
+        "currentStateDuration": "00:02:29",
+        "exceptionEvents": [],
+        "isDeviceCommunicating": true,
+        "isDriving": false,
+        "latitude": 25.5344124,
+        "longitude": -103.37265,
+        "speed": 0,
+        "dateTime": "2023-07-18T15:53:08.000Z",
+        "device": {
+            "id": "b1A9"
+        },
+        "driver": "UnknownDriverId",
+        "isHistoricLastDriver": false,
+        "groups": [
+            {
+                "id": "GroupVehicleId"
+            }
+        ]
+    },
+    {
+        "bearing": 240,
+        "currentStateDuration": "17.18:05:48",
+        "exceptionEvents": [],
+        "isDeviceCommunicating": true,
+        "isDriving": false,
+        "latitude": 25.5341568,
+        "longitude": -103.372772,
+        "speed": 0,
+        "dateTime": "2023-07-18T15:36:18.000Z",
+        "device": {
+            "id": "b22D"
+        },
+        "driver": "UnknownDriverId",
+        "isHistoricLastDriver": false,
+        "groups": [
+            {
+                "id": "GroupTrailerId"
+            }
+        ]
+    },
+    {
+        "bearing": 107,
+        "currentStateDuration": "01:02:38",
+        "exceptionEvents": [],
+        "isDeviceCommunicating": true,
+        "isDriving": false,
+        "latitude": 25.5348225,
+        "longitude": -103.42321,
+        "speed": 0,
+        "dateTime": "2023-07-18T15:32:37.063Z",
+        "device": {
+            "id": "b52"
+        },
+        "driver": "UnknownDriverId",
+        "isHistoricLastDriver": false,
+        "groups": [
+            {
+                "id": "GroupVehicleId"
+            },
+            {
+                "id": "b3E8D"
+            }
+        ]
+    },
+    {
+        "bearing": -1,
+        "currentStateDuration": "00:31:59",
+        "exceptionEvents": [],
+        "isDeviceCommunicating": true,
+        "isDriving": false,
+        "latitude": 25.5523319,
+        "longitude": -103.377663,
+        "speed": 0,
+        "dateTime": "2023-07-18T15:28:18.063Z",
+        "device": {
+            "id": "b48"
+        },
+        "driver": "UnknownDriverId",
+        "isHistoricLastDriver": false,
+        "groups": [
+            {
+                "id": "GroupGasolinePetrolId"
+            },
+            {
+                "id": "GroupVehicleId"
+            }
+        ]
+    },
+    {
+        "bearing": 63,
+        "currentStateDuration": "00:30:34",
+        "exceptionEvents": [],
+        "isDeviceCommunicating": true,
+        "isDriving": false,
+        "latitude": 25.5523319,
+        "longitude": -103.37764,
+        "speed": 0,
+        "dateTime": "2023-07-18T15:27:43.000Z",
+        "device": {
+            "id": "b5D"
+        },
+        "driver": {
+            "driverGroups": [
+                {
+                    "id": "GroupCompanyId"
+                }
+            ],
+            "id": "b26",
+            "isDriver": true
+        },
+        "isHistoricLastDriver": false,
+        "groups": [
+            {
+                "id": "b3E91"
+            },
+            {
+                "id": "GroupVehicleId"
+            }
+        ]
+    },
+    {
+        "bearing": 12,
+        "currentStateDuration": "05:01:55",
+        "exceptionEvents": [],
+        "isDeviceCommunicating": true,
+        "isDriving": false,
+        "latitude": 20.6676998,
+        "longitude": -101.333015,
+        "speed": 0,
+        "dateTime": "2023-07-18T14:00:52.000Z",
+        "device": {
+            "id": "b1A1"
+        },
+        "driver": "UnknownDriverId",
+        "isHistoricLastDriver": false,
+        "groups": [
+            {
+                "id": "GroupTrailerId"
+            }
+        ]
+    },
+    {
+        "bearing": 64,
+        "currentStateDuration": "10.16:16:18",
+        "exceptionEvents": [],
+        "isDeviceCommunicating": true,
+        "isDriving": false,
+        "latitude": 19.6596737,
+        "longitude": -99.1710739,
+        "speed": 0,
+        "dateTime": "2023-07-18T08:51:51.000Z",
+        "device": {
+            "id": "b226"
+        },
+        "driver": "UnknownDriverId",
+        "isHistoricLastDriver": false,
+        "groups": [
+            {
+                "id": "GroupTrailerId"
+            }
+        ]
+    },
+    {
+        "bearing": 173,
+        "currentStateDuration": "00:14:15",
+        "exceptionEvents": [],
+        "isDeviceCommunicating": true,
+        "isDriving": false,
+        "latitude": 25.5341816,
+        "longitude": -103.372696,
+        "speed": 0,
+        "dateTime": "2023-07-18T00:00:31.000Z",
+        "device": {
+            "id": "b22C"
+        },
+        "driver": "UnknownDriverId",
+        "isHistoricLastDriver": false,
+        "groups": [
+            {
+                "id": "GroupTrailerId"
+            }
+        ]
+    },
+    {
+        "bearing": 83,
+        "currentStateDuration": "00:00:58",
+        "exceptionEvents": [],
+        "isDeviceCommunicating": false,
+        "isDriving": false,
+        "latitude": 25.5373573,
+        "longitude": -103.395355,
+        "speed": 0,
+        "dateTime": "2023-07-13T01:45:25.630Z",
+        "device": {
+            "id": "b228"
+        },
+        "driver": "UnknownDriverId",
+        "isHistoricLastDriver": false,
+        "groups": [
+            {
+                "id": "GroupGasolinePetrolId"
+            },
+            {
+                "id": "GroupVehicleId"
+            }
+        ]
+    },
+    {
+        "bearing": 60,
+        "currentStateDuration": "01:01:41",
+        "exceptionEvents": [],
+        "isDeviceCommunicating": false,
+        "isDriving": false,
+        "latitude": 25.5030537,
+        "longitude": -103.388573,
+        "speed": 0,
+        "dateTime": "2023-06-19T21:24:24.063Z",
+        "device": {
+            "id": "b67"
+        },
+        "driver": "UnknownDriverId",
+        "isHistoricLastDriver": false,
+        "groups": [
+            {
+                "id": "GroupVehicleId"
+            }
+        ]
+    }
+]

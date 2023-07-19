@@ -51,14 +51,12 @@ router.get("/api/devices", async (req, res) => {
     }
 
 });
-router.get("/api/deviceStatusInfo", async (req, res) => {
-    /* 
-    geoTabServers.deviceStatusInfo();
-    res.json();
-    */
+router.get("/api/deviceStatusInfo/:id", async (req, res) => {
+    const deviceId = req.params["id"];
     try {
-    let deviceStatusInfoData = await geoTabServers.deviceStatusInfo();
-    res.send({ "Informacion del estado del dispositivo:    ": deviceStatusInfoData });
+    let deviceStatusInfoData = await geoTabServers.deviceStatusInfo(deviceId);
+  //  res.send({ "Informacion del estado del dispositivo:    ": deviceStatusInfoData });
+    res.send(deviceStatusInfoData);
     } catch (error) {
     console.error('Error:', error);
     res.status(500).send('Internal Server Error');

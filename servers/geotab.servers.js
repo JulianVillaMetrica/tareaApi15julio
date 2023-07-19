@@ -1,12 +1,12 @@
 require('dotenv').config()
-const { response } = require('express');
+require('express');
 const GeotabApi = require('mg-api-js');
 const fs = require("fs");
 
 const serverMetrica = process.env.SERVER;
 const db = process.env.DATABASE;
 const userName = process.env.USER_NAME;
-const sessionId = process.env.SESSIONID;
+const sesId = process.env.SESSIONID;
 const passwordEnv = process.env.PASSWORD;
 
 
@@ -14,18 +14,18 @@ const print2 = () =>{
     console.log(serverMetrica);
     console.log(db);
     console.log(userName);
-    console.log(sessionId);
+    console.log(sesId);
 } 
 function print(){
     console.log(serverMetrica);
     console.log(db);
     console.log(userName);
-    console.log(sessionId);
+    console.log(sesId);
     console.log(passwordEnv)
 }
 
 async function users(){    
-    const authentication = {
+    /* const authentication = {
         
         credentials: {
             database: db,
@@ -33,7 +33,19 @@ async function users(){
             password: passwordEnv
         },
         path: serverMetrica
+        }*/
+        
+    const authentication = {
+        
+        credentials: {
+            database: db,
+            userName: userName,
+            sessionId: sesId,
+            password: passwordEnv
+        },
+        path: serverMetrica
         }
+        print();
     const api = new GeotabApi(authentication);
 
    // await api.authenticate().then( response => console.log('I have authenticated',response));
@@ -96,12 +108,13 @@ async function devices(){
     const api = new GeotabApi(authentication);
     let myCall = api.call('Get', {
     typeName: 'Device',
-    resultsLimit: 5
+    resultsLimit: 1
     });
 /*
     myCall.then( data => console.log(`Server response data: ${data}`,data)).
     catch( error => console.log(error));
 */
+    let deviceData;
     await myCall.then( data => { 
     console.log(`Server response data: ${data}`,data)
     deviceData = data;
@@ -109,7 +122,7 @@ async function devices(){
     catch( error => console.log(error));
     return deviceData;
 }
-async function deviceStatusInfo(){
+async function deviceStatusInfo(id){
     const authentication = {
     
     credentials: {
@@ -124,12 +137,19 @@ async function deviceStatusInfo(){
     const api = new GeotabApi(authentication);
     let myCall = api.call('Get', {
     typeName: 'DeviceStatusInfo',
-    resultsLimit: 5
+    "search" : {
+    "deviceSearch" : {
+        "id" : id
+    }
+    },
+    resultsLimit: 1
     });
+    console.log(id)
     /*
     myCall.then( data => console.log(`Server response data: ${data}`,data)).
     catch( error => console.log(error));
     */
+    let deviceStatusInfoData;
     await myCall.then( data => { 
     console.log(`Server response data: ${data}`,data)
     deviceStatusInfoData = data;

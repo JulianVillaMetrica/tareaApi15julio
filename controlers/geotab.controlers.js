@@ -7,7 +7,7 @@ function users(){
 function devices(){
     geoTabService.devices();
 }
-function deviceStatusInfo(){
+function deviceStatusInfo(id){
     geoTabService.deviceStatusInfo();
 }
 module.exports ={
